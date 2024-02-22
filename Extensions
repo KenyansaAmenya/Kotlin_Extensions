@@ -1,0 +1,21 @@
+class Dish(
+    val dishName: String,
+    val ingredients: MutableList<String>
+)
+
+fun Dish.printIngredients() {
+    println("Ingredients for $dishName:")
+    for (ingredient in ingredients) {
+        println("- $ingredient")
+    }
+}
+
+fun Dish.removeSalt() {
+    ingredients.remove("Salt")
+}
+
+fun main() {
+    val onionSoup = Dish("Onion Soup", mutableListOf("Onion", "Cheese", "Water", "Salt"))
+    onionSoup.removeSalt() // Remove salt from ingredients before printing
+    onionSoup.printIngredients() // Print the ingredients list
+}
